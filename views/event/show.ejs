@@ -1,0 +1,34 @@
+<%- include('../base_template/navbar.ejs')-%>
+<% if(locals.success){%>
+  <div style="width: 60%;background:rgb(250, 97, 128);color:rgb(65, 4, 4);border-radius: 4px;margin:3px auto;">
+      <%=success%>
+  </div>
+<%}%>
+<div class="containers">
+    <div class="" >
+        <div class="container">
+            <div class="main-body" style="width: 100%;display: flex;justify-content: center;">
+                  <div class="row gutters-sm mt-3" style="width: 100%">
+                    <div class="col-md-12 mb-3" style="width: 100%">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                              <h4><%=obj.name%></h4>
+                              <p class="text-secondary mb-1"><%=obj.location%></p>
+                              <p class="text-muted font-size-sm" style="border-radius: 3px;padding: 3px;font-size: 14px;color: rgb(248, 247, 246);background-color: #2c2c2c;"><%=obj.date.toDateString()%></p>
+                              <a class="btn btn-primary" href="<%= '/events/edit/'+obj.id%>">Edit</a>
+                              <button id="delete-user" data-id="<%=obj.id%>" class="btn" style="background-color: rgb(189, 11, 11); color: rgb(248, 247, 246);">Delete</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../base_template/footer.ejs')-%>

@@ -1,0 +1,33 @@
+<%- include('../base_template/navbar.ejs')-%>
+
+<!-- we can send object to navbar.ejs by:
+include('../base_template/navbar.ejs'),{user:user}
+ and use the object name in template  -->
+<!--container-->
+<% if(locals.success){%>
+  <div style="width: 60%;background:rgb(250, 97, 128);color:rgb(65, 4, 4);border-radius: 4px;margin:3px auto;">
+      <%=success%>
+  </div>
+<%}%>
+<div class="containers">
+  <div class="wepper">
+    <% obj.forEach(function(obj){ %>
+    <div class="card" style="width: 18rem">
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <p><%=obj.name%></p>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="<%='/events/'+obj.id.toString()%>">show detail</a>
+      </div>
+    </div>
+
+    <% }); %>
+  </div>
+</div>
+
+<!-- /container -->
+
+<%- include('../base_template/footer.ejs')-%>

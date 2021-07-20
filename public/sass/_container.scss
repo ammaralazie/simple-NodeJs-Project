@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    height: 100vh;
+}
+
+%flx{
+    display: flex;
+    align-items:center;
+}
+
+.containers{
+    width: 100%;
+    height:100% ;
+    .wepper{
+        @extend %flx;
+        justify-content: center;
+        background-color: #eee;
+    }
+}

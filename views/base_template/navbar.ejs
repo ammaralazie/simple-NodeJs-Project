@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="/css/style.css" /> -->
+    <style>
+      * {
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        height: 100vh;
+      }
+
+      .containers .wepper {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .containers .wepper .card {
+        margin: 10px;
+      }
+      .containers {
+        width: 100%;
+        height: 100%;
+      }
+      .containers .wepper {
+        justify-content: center;
+        background-color: #eee;
+      }
+
+      /*# sourceMappingURL=style.css.map */
+
+      .d-flex a {
+        margin: 5px;
+        text-decoration: none;
+        color: #1a1a1a;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/events">Note</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href='<%="/events"%>'
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="/events/create">Create User</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Delete User</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >Disabled</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex">
+            <a href="">login</a>
+            <a href="">SignUp</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- /navbar -->
+  </body>
+</html>
