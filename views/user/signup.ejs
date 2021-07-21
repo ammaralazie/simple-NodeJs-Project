@@ -1,0 +1,52 @@
+<%- include('../base_template/navbar.ejs')-%>
+<% if(locals.error){%>
+  <div style="width: 60%;background:rgb(250, 97, 128);color:rgb(65, 4, 4);border-radius: 4px;;margin:3px auto;">
+      <%=error%>
+  </div>
+<%}%>
+<div class="containers" style="display: flex;flex-direction: column;">
+  <div style="width: 100%; display: flex; justify-content: center">
+  <form style="width: 60%" action="/users/signup" method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">username</label>
+      <input
+        type="username"
+        class="form-control"
+        id="username"
+        name="username"
+        aria-describedby="emailHelp"
+      />
+      <label for="email" class="form-label">email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        aria-describedby="emailHelp"
+      />
+      <!--  <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div> -->
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="confrim-passwrd" class="form-label">confirm password</label>
+      <input type="password" class="form-control" id="confrim-passwrd" name="confrim_password" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">signup</button>
+  </form>
+</div>
+</div>
+
+
+<%- include('../base_template/footer.ejs')-%>
