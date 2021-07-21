@@ -1,19 +1,12 @@
 <%- include('../base_template/navbar.ejs')-%>
 
-<!-- we can send object to navbar.ejs by:
-include('../base_template/navbar.ejs'),{user:user}
- and use the object name in template  -->
-
+ <% if(locals.error){%>
+  <div style="width: 60%;background:rgb(250, 97, 128);color:rgb(65, 4, 4);border-radius: 4px;;margin:3px auto;">
+      <%=error%>
+  </div>
+<%}%>
 <!--container-->
 <div class="containers" style="display: flex;flex-direction: column;">
-  <!-- <% if(locals.errors){%>
-      <%errors.forEach((err)=>{%>
-          <div style="width: 60%;padding: 5px;background:rgb(250, 97, 128);color:rgb(65, 4, 4);border-radius: 4px;;margin:3px auto;">
-              <%=err.msg%>
-          </div>
-      <%})%>
-  <%}%>
-  <br> -->
   <div style="width: 100%; display: flex; justify-content: center">
   <form style="width: 60%" action="/users/login" method="POST">
     <div class="mb-3">
@@ -22,12 +15,9 @@ include('../base_template/navbar.ejs'),{user:user}
         type="identfir"
         class="form-control"
         id="identfir"
-        name="identfir"
+        name="email"
         aria-describedby="emailHelp"
       />
-      <!--  <div id="emailHelp" class="form-text">
-              We'll never share your email with anyone else.
-            </div> -->
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">password</label>

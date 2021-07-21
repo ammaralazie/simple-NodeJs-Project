@@ -20,7 +20,7 @@ users.methods.hashPassword=(password)=>{
 }
 //اهنا سوينة هاش باسورد لي تشفير الباسورد الى عشرة احرف وتستخدم مع التسجل
 
-users.methods.comparePassword=(password,hash)=>{
+users.methods.comparePasswords=(password,hash)=>{
     return bcrypt.compareSync(password,hash)
 }
 //هاي الفكشن تستخد لي المقارنة بين الباسورد الي جايني مع طلب و الباسورد المخزون عندي 

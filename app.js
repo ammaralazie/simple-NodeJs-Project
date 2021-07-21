@@ -44,6 +44,12 @@ app.use(passport.session());
 router = require("./routes/route");
 app.use("/events", router);
 
+//get user from session then login or registeration
+app.get('*',(req,res,next)=>{
+  //اهنا يعني عند حدوث اي طلب يروح يدور على يوزر بالسشن اذا لكاه انخزن عندي تحت اسم يوزر وذا لا راح يرجع  نلل
+  res.locals.user=req.user || null
+  next()
+})
 //import user-router and use it
 user_router = require("./routes/user-router");
 app.use("/users", user_router);
