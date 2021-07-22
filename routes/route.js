@@ -4,9 +4,10 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const moment=require('moment')
 moment().format()
+const isAuthenticated=require('../middlware/AuthMiddlware')
 
 //create user function redirect to create user page
-router.get("/create", [], (req, res) => {
+router.get("/create",isAuthenticated, [], (req, res) => {
   res.render("event/create", {
     errors:  req.flash('errors'),
     
@@ -17,6 +18,7 @@ router.get("/create", [], (req, res) => {
 //save date when active action
 router.post(
   "/create",
+  isAuthenticated,
   [
     check("name", "name must be string and lenght at least 5 charctires")
       .isString()
@@ -41,6 +43,7 @@ router.post(
           phone: req.body.phone,
           date: req.body.date,
           created_at: new Date(),
+          user_id:req.user.id
         }); //end of Event
         // newUser.created_at=new Date()
         newUser.save((err) => {
@@ -58,7 +61,7 @@ router.post(
   })
 //end of save date when active action
 
-router.get("/", (req, res) => {
+router.get("/",isAuthenticated, (req, res) => {
   Event.find({}, (err, events) => {
     if (err) {
       console.log(err);
@@ -72,7 +75,7 @@ router.get("/", (req, res) => {
   });
 }); //end of index
 
-router.get("/:id", (req, res) => {
+router.get("/:id",isAuthenticated, (req, res) => {
   Event.findOne({ _id: req.params.id }, (err, data) => {
     if (err) {
       console.log(err);
@@ -87,7 +90,7 @@ router.get("/:id", (req, res) => {
 }); //end of show function
 
 //edit section 
-router.get('/edit/:id',(req,res)=>{
+router.get('/edit/:id',isAuthenticated,(req,res)=>{
     const usr=Event.findOne({_id:req.params.id},(err,data)=>{
         if(err){
             console.log(err)
@@ -105,7 +108,7 @@ router.get('/edit/:id',(req,res)=>{
 //end section of edit
 
 //section update 
-router.post('/update',[
+router.post('/update',isAuthenticated,[
     check("name", "name must be string and lenght at least 5 charctires")
       .isString()
       .isLength({ min: 5 }),
@@ -141,7 +144,7 @@ router.post('/update',[
 //end of section update
 
 //delete section
-router.get('/delete/:id',(req,res)=>{
+router.get('/delete/:id',isAuthenticated,(req,res)=>{
     const query={_id:req.params.id};
     Event.deleteOne(query,(err)=>{
         if(err){

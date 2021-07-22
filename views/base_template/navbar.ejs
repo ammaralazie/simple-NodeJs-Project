@@ -119,8 +119,13 @@
             </li>
           </ul>
           <form class="d-flex">
-            <a href="">login</a>
-            <a href="">SignUp</a>
+            <%if(!locals.user){%>
+              <a href="/users/login">login</a>
+              <a href="/users/signup">SignUp</a>
+            <%}%>
+            <%if(locals.user){%>
+              <a href="/users/logout">LogOut</a>
+            <%}%>
           </form>
         </div>
       </div>

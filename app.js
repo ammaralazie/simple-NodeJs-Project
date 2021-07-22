@@ -40,16 +40,26 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-//import to route file and use it
-router = require("./routes/route");
-app.use("/events", router);
-
 //get user from session then login or registeration
 app.get('*',(req,res,next)=>{
   //اهنا يعني عند حدوث اي طلب يروح يدور على يوزر بالسشن اذا لكاه انخزن عندي تحت اسم يوزر وذا لا راح يرجع  نلل
   res.locals.user=req.user || null
+  //نيكست تعني انو كمل الطلب الي جايني
   next()
 })
+
+//to add formt date in template ejs
+const moment = require("moment");
+app.use((req, res, next)=>{
+    res.locals.moment = moment;
+    next();
+  });
+
+//import to route file and use it
+router = require("./routes/route");
+app.use("/events", router);
+
+
 //import user-router and use it
 user_router = require("./routes/user-router");
 app.use("/users", user_router);

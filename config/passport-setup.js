@@ -54,6 +54,8 @@ passport.use(
                 newUser.username = req.body.username;
                 newUser.email = req.body.email;
                 newUser.password = newUser.hashPassword(req.body.password);
+                newUser.avater='profile.png';
+                newUser.created_at=new Date()
                 newUser.save((err, user) => {
                   if (!err) {
                     return done(

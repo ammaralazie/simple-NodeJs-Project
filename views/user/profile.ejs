@@ -17,10 +17,14 @@
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                   <img
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  <% if(locals.user.avater.filename){ %>
+                    src="<%= '/media/'+locals.user.avater.filename%>"
+                    <% } else { %>
+                      src="/media/profile.png"
+                      <%}%>
                     alt="Admin"
                     class="rounded-circle"
-                    width="150"
+                    width="200"
                   />
                   <div class="mt-3">
                     <h4></h4>
@@ -34,19 +38,19 @@
                         color: rgb(248, 247, 246);
                         background-color: #2c2c2c;
                       "
-                    ></p>
-                    <a class="btn btn-primary" href="">Edit</a>
-                    <button
-                      id="delete-user"
-                      data-id=""
-                      class="btn"
-                      style="
-                        background-color: rgb(189, 11, 11);
-                        color: rgb(248, 247, 246);
-                      "
-                    >
-                      Delete
-                    </button>
+                    ><%=locals.moment(locals.user.created_at).format('YYYY-MM-DD')%></p>
+                    <form action="/users/save-image" enctype="multipart/form-data" method="post">
+                      <input type="file" name="avatar" id="" />
+                      <button
+                        class="btn"
+                        style="
+                          background-color: rgb(189, 11, 11);
+                          color: rgb(248, 247, 246);
+                        "
+                      >
+                        Update
+                      </button>
+                    </form>
                   </div>
                 </div>
               </div>

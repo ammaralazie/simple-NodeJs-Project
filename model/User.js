@@ -13,6 +13,18 @@ const users=mongoose.Schema({
     ,email:{
         type:String,
         required:true
+    },
+    avater:{
+        type:Object,
+        required:true,
+        index : {
+            unique : true,
+            dropDups : true
+        }
+    },
+    created_at:{
+        type:Date,
+        required:true
     }
 })
 users.methods.hashPassword=(password)=>{

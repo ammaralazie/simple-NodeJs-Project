@@ -12,6 +12,11 @@ const Events=new mongoose.Schema({
         type:Number ,
         required:true
     },
+    user_id:{
+        type:String,
+        required:true
+
+    },
     date:{
         type:Date  ,
         required:true
